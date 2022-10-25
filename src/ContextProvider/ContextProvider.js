@@ -28,7 +28,7 @@ const ContextProvider = ({ children }) => {
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(Auth, (currenUser) => {
-      console.log("check the user", currenUser);
+      // console.log("check the user", currenUser);
       setUser(currenUser);
     });
     return () => unsubscribe();

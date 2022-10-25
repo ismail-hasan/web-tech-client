@@ -4,6 +4,7 @@ import Blog from "./Components/Blog/Blog";
 import Course from "./Components/Course/Course";
 import CourseDetails from "./Components/CourseDetails/CourseDetails";
 import Home from "./Components/Home/Home";
+import LeftSideBar from "./Components/LeftSideBar/LeftSideBar";
 import Login from "./Components/Login/Login";
 import Register from "./Components/Register/Register";
 import Main from "./Layout/Main";
@@ -23,6 +24,11 @@ function App() {
         {
           path: "/course/:id",
           element: <CourseDetails></CourseDetails>,
+          loader: ({ params }) => fetch(`http://localhost:5000/course/${params.id}`),
+        },
+        {
+          path: "/course/:id",
+          element: <LeftSideBar></LeftSideBar>,
           loader: ({ params }) => fetch(`http://localhost:5000/course/${params.id}`),
         },
       ],

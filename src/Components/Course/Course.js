@@ -5,12 +5,15 @@ import RightSide from "../RightSide/RightSide";
 
 const Course = () => {
   const course = useLoaderData();
-  console.log(course);
+
+  // console.log(course);
   return (
     <div>
       <div className="grid grid-cols-12 bg-[#ebebeb]">
-        <div className="col-span-2 border border-[#9bf500]">
-          <LeftSideBar></LeftSideBar>
+        <div className="col-span-2 px-10 py-20 ">
+          {course.map((oneCourse) => (
+            <LeftSideBar oneCourse={oneCourse} key={oneCourse.id}></LeftSideBar>
+          ))}
         </div>
         <div className=" right-side col-span-10">
           <div className="grid grid-cols-3 gap-7 my-16">
