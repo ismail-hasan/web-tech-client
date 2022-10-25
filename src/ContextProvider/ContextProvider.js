@@ -3,9 +3,11 @@ import { createContext } from "react";
 import {
   createUserWithEmailAndPassword,
   getAuth,
+  GithubAuthProvider,
   GoogleAuthProvider,
   onAuthStateChanged,
   signInWithEmailAndPassword,
+  signInWithPopup,
   signOut,
 } from "firebase/auth";
 import app from "../FireBase/FireBase.init";
@@ -18,12 +20,21 @@ const ContextProvider = ({ children }) => {
 
   const Auth = getAuth(app);
   const googleProvider = new GoogleAuthProvider();
+  const githubProvider = new GithubAuthProvider();
 
   const createUserWithPassword = (email, password) => {
     return createUserWithEmailAndPassword(Auth, email, password);
   };
   const signInWithPassword = (email, password) => {
     return signInWithEmailAndPassword(Auth, email, password);
+  };
+
+  const googleSingIn = () => {
+    return signInWithPopup(Auth, googleProvider);
+  };
+
+  const githubSingIn = () => {
+    return signInWithPopup(Auth, githubProvider);
   };
 
   useEffect(() => {
@@ -38,7 +49,7 @@ const ContextProvider = ({ children }) => {
     signOut(Auth);
   };
 
-  const userInfo = { user, logOut, signInWithPassword, createUserWithPassword };
+  const userInfo = { user, githubSingIn, logOut, signInWithPassword, createUserWithPassword, googleSingIn };
 
   return <AuthContext.Provider value={userInfo}>{children}</AuthContext.Provider>;
 };

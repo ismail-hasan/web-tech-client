@@ -15,7 +15,7 @@ const Course = () => {
             <LeftSideBar oneCourse={oneCourse} key={oneCourse.id}></LeftSideBar>
           ))}
         </div>
-        <div className=" right-side col-span-10">
+        <div className=" right-side col-span-10 px-4">
           <div className="grid grid-cols-3 gap-7 my-16">
             {course.map((oneCourse) => (
               <RightSide oneCourse={oneCourse} key={oneCourse.id}></RightSide>
