@@ -7,12 +7,12 @@ const Home = () => {
     <div>
       <div className="home-container flex flex-col text-center h-[100vh] justify-center text-white items-center">
         <p className="text-[22px] text-orange-600"> Best online learning platform</p>
-        <h1 className="text-5xl">
+        <h1 className="text-6xl">
           Start Learning from home with <br /> expert instructors
         </h1>
-        <p className="text-2xl mt-5">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Error laboriosam aliquid <br /> illo reiciendis in
-          quos esse quasi quo nesciunt rem?
+        <p className="text-xl mt-5">
+          Read about the basics of web development,  the process of creating a website, <br /> and additional resources
+          for those who want to learn more
         </p>
         <Link to="/course">
           <button className="capitalize text-white bg-orange-500 py-[6px] px-7 rounded mt-5 text-lg">

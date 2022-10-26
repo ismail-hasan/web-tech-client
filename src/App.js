@@ -1,6 +1,7 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./App.css";
 import Blog from "./Components/Blog/Blog";
+import CheckCart from "./Components/CheckCart/CheckCart";
 import Course from "./Components/Course/Course";
 import CourseDetails from "./Components/CourseDetails/CourseDetails";
 import Error from "./Components/ErrorPage/Error";
@@ -23,6 +24,7 @@ function App() {
         { path: "/blog", element: <Blog></Blog> },
         { path: "/login", element: <Login></Login> },
         { path: "/register", element: <Register></Register> },
+        { path: "/checkout", element: <CheckCart></CheckCart>, loader: () => fetch("http://localhost:5000/course") },
         {
           path: "/course/:id",
           element: <CourseDetails></CourseDetails>,

@@ -1,6 +1,6 @@
 import React from "react";
 import { useContext } from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../ContextProvider/ContextProvider";
 import "./Header.css";
 
@@ -36,9 +36,12 @@ const Header = () => {
               <NavLink to="/home">Home</NavLink>
               <NavLink to="/course">Courses</NavLink>
               <NavLink to="/blog">Blog</NavLink>
+              <NavLink to="/faq">FAQ</NavLink>
             </ul>
           </div>
-          <a className="btn btn-ghost normal-case text-xl">Web Tech</a>
+          <Link to="/home" className="btn btn-ghost normal-case text-xl">
+            Web Tech
+          </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal p-0">
@@ -50,6 +53,9 @@ const Header = () => {
             </NavLink>
             <NavLink className="text-lg mr-5" to="/blog">
               Blog
+            </NavLink>
+            <NavLink className="text-lg mr-5" to="/blog">
+              FAQ
             </NavLink>
           </ul>
           <div className="form-control ml-3">

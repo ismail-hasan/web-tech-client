@@ -1,6 +1,6 @@
 import React from "react";
 import { useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import { AuthContext } from "../../ContextProvider/ContextProvider";
 
@@ -40,15 +40,21 @@ const Login = () => {
           <input
             name="email"
             placeholder="E-Mail"
-            className="px-2 outline-none py-[6px] w-full rounded mt-4"
+            className="px-2 outline-none py-[7px] w-full rounded mt-4"
             type=" "
           />
           <input
             name="password"
             placeholder="Password"
-            className="px-2 outline-none py-[6px] w-full rounded mt-4"
+            className="px-2 outline-none py-[7px] w-full rounded mt-8"
             type=" "
           />
+          <p className="lowercase text-[#000000] mt-3">
+            Dont,t I Have Not AN Acount
+            <Link className="underline text-blue-800" to="/register">
+              Register Now
+            </Link>
+          </p>
 
           <button className="text-white text-lg rounded-sm bg-purple-700 px-6 py-2 mt-8">Submit</button>
         </div>

@@ -2,7 +2,7 @@ import React from "react";
 import "./Register.css";
 import { useContext } from "react";
 import { AuthContext } from "../../ContextProvider/ContextProvider";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import { useState } from "react";
 import { confirmPasswordReset } from "firebase/auth";
@@ -83,7 +83,14 @@ const Register = () => {
             className="px-2 outline-none py-[7px] w-full rounded mt-6"
             type=" "
           />
-          
+
+          <p className="lowercase text-[#000000] mt-3">
+            already have an acouont
+            <Link className="underline text-blue-800" to="/login">
+              Please Login
+            </Link>
+          </p>
+
           <button className="text-white text-lg rounded-sm bg-purple-700 px-6 py-2 mt-8  right-0">Submit</button>
           <hr className="my-10" />
         </div>
