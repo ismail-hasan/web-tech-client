@@ -17,33 +17,49 @@ const Header = () => {
   };
 
   return (
-    <div className="bg-black text-white">
-      <div className="md:flex justify-between items-center py-4 md:py-0 sticky top-0 z-20 px-[30px]">
-        <div className="flex justify-between items-center">
-          <Link to={"/home"}>
-            <h1 className="text-3xl md:text-4xl capitalize">online learner</h1>
-          </Link>
-          <HiOutlineMenuAlt3
-            onClick={() => setShwoNav(!showNav)}
-            className="md:hidden block cursor-pointer text-4xl"
-          ></HiOutlineMenuAlt3>
+    <div className="">
+      <div className="navbar bg-black text-white px-[70px]">
+        <div className="navbar-start">
+          <div className="dropdown ">
+            <label tabIndex={0} className="btn btn-ghost lg:hidden">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" />
+              </svg>
+            </label>
+            <ul
+              tabIndex={0}
+              className=" text-black font-semibold px-7 py-5 menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 bg-black"
+            >
+              <NavLink to="/home">Home</NavLink>
+              <NavLink to="/course">Courses</NavLink>
+              <NavLink to="/blog">Blog</NavLink>
+            </ul>
+          </div>
+          <a className="btn btn-ghost normal-case text-xl">Online Tutorial</a>
         </div>
-
-        <nav
-          className={
-            (showNav ? "left-0" : "-left-full") +
-            " fixed md:static mt-[60px] md:mt-[0px] flex flex-col md:flex-row md:w-auto -z-10 items-center bottom-0 top-0 space-y-7 md:space-y-0   bg-black w-[40%] p-5 md:bg-transparent transition-left"
-          }
-        >
-          <NavLink className="mr-5 text-lg" to="/course">
-            Course
-          </NavLink>
-          <NavLink className="mr-5 text-lg" to="/blog">
-            Blog
-          </NavLink>
+        <div className="navbar-center hidden lg:flex">
+          <ul className="menu menu-horizontal p-0">
+            <NavLink className="text-lg mr-5" to="/home">
+              Home
+            </NavLink>
+            <NavLink className="text-lg mr-5" to="/course">
+              Courses
+            </NavLink>
+            <NavLink className="text-lg mr-5" to="/blog">
+              Blog
+            </NavLink>
+          </ul>
+        </div>
+        <div className="navbar-end">
           {user?.uid ? (
             <NavLink to="/login">
-              <button onClick={hendleOut} className="btn bg-orange-500 py-[6px] px-5 rounded mr-3">
+              <button onClick={hendleOut} className="btn px-5 rounded mr-3">
                 Log Out
               </button>
             </NavLink>
@@ -55,16 +71,9 @@ const Header = () => {
               <NavLink to="register">
                 <button className="capitalize ">Register </button>
               </NavLink>
-              {/* <NavLink>
-                {user.photoURL ? (
-                  <img className="rounded-lg" style={{ height: "30px" }} src={user.photoURL} alt="" />
-                ) : (
-                  <HiFastForward></HiFastForward>
-                )}
-              </NavLink> */}
             </>
           )}
-        </nav>
+        </div>
       </div>
     </div>
   );

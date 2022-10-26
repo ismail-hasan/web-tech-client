@@ -83,13 +83,7 @@ const Register = () => {
             className="px-2 outline-none py-[7px] w-full rounded mt-6"
             type=" "
           />
-          <input
-            required
-            name="cPasaword"
-            placeholder="Confirm Password"
-            className="px-2 outline-none py-[7px] w-full rounded mt-6"
-            type=" "
-          />
+          
           <button className="text-white text-lg rounded-sm bg-purple-700 px-6 py-2 mt-8  right-0">Submit</button>
           <hr className="my-10" />
         </div>
