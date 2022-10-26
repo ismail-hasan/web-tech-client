@@ -1,13 +1,10 @@
 import React from "react";
-import { useState } from "react";
 import { useContext } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { AuthContext } from "../../ContextProvider/ContextProvider";
-import { HiFastForward, HiOutlineMenuAlt3 } from "react-icons/hi";
 import "./Header.css";
 
 const Header = () => {
-  const [showNav, setShwoNav] = useState(false);
   const { user, logOut } = useContext(AuthContext);
 
   const hendleOut = () => {
@@ -18,7 +15,7 @@ const Header = () => {
 
   return (
     <div className="">
-      <div className="navbar bg-black text-white px-[70px]">
+      <div className="navbar bg-black text-white px-[50px]">
         <div className="navbar-start">
           <div className="dropdown ">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -41,7 +38,7 @@ const Header = () => {
               <NavLink to="/blog">Blog</NavLink>
             </ul>
           </div>
-          <a className="btn btn-ghost normal-case text-xl">Online Tutorial</a>
+          <a className="btn btn-ghost normal-case text-xl">Web Tech</a>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal p-0">
@@ -55,6 +52,12 @@ const Header = () => {
               Blog
             </NavLink>
           </ul>
+          <div className="form-control ml-3">
+            <label className="label cursor-pointer">
+              <span className="label-text"></span>
+              <input type="checkbox" className="toggle toggle-primary" />
+            </label>
+          </div>
         </div>
         <div className="navbar-end">
           {user?.uid ? (
