@@ -3,8 +3,10 @@ import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../ContextProvider/ContextProvider";
 import "./Header.css";
+import { FaUserAlt } from "react-icons/fa";
 
 const Header = () => {
+  // const []
   const { user, logOut } = useContext(AuthContext);
 
   const hendleOut = () => {
@@ -15,7 +17,7 @@ const Header = () => {
 
   return (
     <div className="">
-      <div className="navbar bg-black text-white px-[50px]">
+      <div className="navbar bg-black text-white px-[70px]">
         <div className="navbar-start">
           <div className="dropdown ">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -39,7 +41,7 @@ const Header = () => {
               <NavLink to="/faq">FAQ</NavLink>
             </ul>
           </div>
-          <Link to="/home" className="btn btn-ghost normal-case text-xl">
+          <Link to="/home" className="btn btn-ghost normal-case text-2xl">
             Web Tech
           </Link>
         </div>
@@ -75,12 +77,23 @@ const Header = () => {
           ) : (
             <>
               <NavLink to="/login">
-                <button className=" mr-3">Login </button>
+                <button className=" text-lg mr-3">Login</button>
               </NavLink>
               <NavLink to="register">
-                <button className="capitalize ">Register </button>
+                <button className="capitalize text-lg">Register </button>
               </NavLink>
             </>
+          )}
+          {user?.photoURL ? (
+            <img
+              title={user.displayName}
+              className="rounded-full cursor-pointer"
+              style={{ height: "40px" }}
+              src={user.photoURL}
+              alt=""
+            />
+          ) : (
+            <FaUserAlt className="text-[27px] ml-5"></FaUserAlt>
           )}
         </div>
       </div>
