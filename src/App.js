@@ -8,6 +8,7 @@ import Error from "./Components/ErrorPage/Error";
 import Home from "./Components/Home/Home";
 import LeftSideBar from "./Components/LeftSideBar/LeftSideBar";
 import Login from "./Components/Login/Login";
+import PrivetRoute from "./Components/PrivetRouter/PrivetRoute";
 import Register from "./Components/Register/Register";
 import Main from "./Layout/Main";
 
@@ -24,7 +25,15 @@ function App() {
         { path: "/blog", element: <Blog></Blog> },
         { path: "/login", element: <Login></Login> },
         { path: "/register", element: <Register></Register> },
-        { path: "/checkout", element: <CheckCart></CheckCart>, loader: () => fetch("http://localhost:5000/course") },
+        {
+          path: "/checkout",
+          element: (
+            <PrivetRoute>
+              <CheckCart></CheckCart>
+            </PrivetRoute>
+          ),
+          loader: () => fetch("http://localhost:5000/course"),
+        },
         {
           path: "/course/:id",
           element: <CourseDetails></CourseDetails>,

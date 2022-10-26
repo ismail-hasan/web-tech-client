@@ -10,13 +10,11 @@ const CheckCart = () => {
         <h1 className="text-2xl capitalize">thank your dear</h1>
         <h2 className="text-lg capitalize text-pink-500">
           you have successfully enrolled
-          <span>
-           
-          </span>
+          <span></span>
         </h2>
         <Link to="/course">
           <button className="border border-orange-500 px-5 py-3 rounded-full w-2/4 mx-auto font-semibold text-xl">
-            Return Back
+            Back To Courses
           </button>
         </Link>
       </div>
