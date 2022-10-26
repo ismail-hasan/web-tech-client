@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../ContextProvider/ContextProvider";
-import { HiOutlineMenuAlt3 } from "react-icons/hi";
+import { HiFastForward, HiOutlineMenuAlt3 } from "react-icons/hi";
 import "./Header.css";
 
 const Header = () => {
@@ -18,7 +18,7 @@ const Header = () => {
 
   return (
     <div className="bg-black text-white">
-      <div className="md:flex justify-between items-center sticky top-0 z-20 px-[30px]">
+      <div className="md:flex justify-between items-center py-4 md:py-0 sticky top-0 z-20 px-[30px]">
         <div className="flex justify-between items-center">
           <Link to={"/home"}>
             <h1 className="text-3xl md:text-4xl capitalize">online learner</h1>
@@ -55,7 +55,13 @@ const Header = () => {
               <NavLink to="register">
                 <button className="capitalize ">Register </button>
               </NavLink>
-              {user?.email}
+              {/* <NavLink>
+                {user.photoURL ? (
+                  <img className="rounded-lg" style={{ height: "30px" }} src={user.photoURL} alt="" />
+                ) : (
+                  <HiFastForward></HiFastForward>
+                )}
+              </NavLink> */}
             </>
           )}
         </nav>

@@ -1,6 +1,7 @@
 import React from "react";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
 import { AuthContext } from "../../ContextProvider/ContextProvider";
 
 const Login = () => {
@@ -20,8 +21,12 @@ const Login = () => {
         console.log(users);
         form.reset();
         nagivate("/course");
+        toast.success("User Login Sucess");
       })
-      .catch((e) => console.log(e));
+      .catch((e) => {
+        toast.error(e.message);
+        console.log(e);
+      });
   };
   return (
     <div>
@@ -48,6 +53,7 @@ const Login = () => {
           <button className="text-white text-lg rounded-sm bg-purple-700 px-6 py-2 mt-8">Submit</button>
         </div>
       </form>
+      <ToastContainer />
     </div>
   );
 };

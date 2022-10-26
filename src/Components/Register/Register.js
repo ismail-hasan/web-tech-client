@@ -3,8 +3,12 @@ import "./Register.css";
 import { useContext } from "react";
 import { AuthContext } from "../../ContextProvider/ContextProvider";
 import { useNavigate } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
+import { useState } from "react";
+import { confirmPasswordReset } from "firebase/auth";
 
 const Register = () => {
+  const [error, setError] = useState(false);
   const { createUserWithPassword, googleSingIn, githubSingIn } = useContext(AuthContext);
   const nagivate = useNavigate();
 
@@ -15,8 +19,8 @@ const Register = () => {
     const email = form.email.value;
     const photo = form.photo.value;
     const password = form.password.value;
-    const cPasaword = form.cPasaword.value;
-    console.log(name, email, photo, password, cPasaword);
+    // const cPasaword = form.cPasaword.value;
+    console.log(name, email, photo, password);
 
     createUserWithPassword(email, password)
       .then((result) => {
@@ -24,10 +28,11 @@ const Register = () => {
         console.log(users);
         form.reset();
         nagivate("/course");
+        toast.success("user login success");
       })
       .catch((e) => {
         console.log(e);
-        // const error = error.message;
+        toast.error(e.message);
       });
   };
 
@@ -44,8 +49,12 @@ const Register = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
+        toast.success("github login successfull");
       })
-      .catch((e) => console.log(e));
+      .catch((e) => {
+        toast.error(e.message);
+        console.log(e);
+      });
   };
 
   return (
@@ -57,6 +66,7 @@ const Register = () => {
           <input
             name="email"
             placeholder="E-Mail"
+            required
             className="px-2 outline-none py-[7px] w-full rounded mt-6"
             type=" "
           />
@@ -67,12 +77,14 @@ const Register = () => {
             type=" "
           />
           <input
+            required
             name="password"
             placeholder="Password"
             className="px-2 outline-none py-[7px] w-full rounded mt-6"
             type=" "
           />
           <input
+            required
             name="cPasaword"
             placeholder="Confirm Password"
             className="px-2 outline-none py-[7px] w-full rounded mt-6"
@@ -96,6 +108,7 @@ const Register = () => {
           github
         </button>
       </div>
+      <ToastContainer></ToastContainer>
     </div>
   );
 };

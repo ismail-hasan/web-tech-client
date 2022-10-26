@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Home.css";
 
 const Home = () => {
@@ -13,7 +14,11 @@ const Home = () => {
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Error laboriosam aliquid <br /> illo reiciendis in
           quos esse quasi quo nesciunt rem?
         </p>
-        <button className="capitalize text-white bg-orange-500 py-[6px] px-5 rounded mt-5">see more</button>
+        <Link to="/course">
+          <button className="capitalize text-white bg-orange-500 py-[6px] px-7 rounded mt-5 text-lg">
+            Our Courses
+          </button>
+        </Link>
       </div>
     </div>
   );

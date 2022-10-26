@@ -3,6 +3,7 @@ import "./App.css";
 import Blog from "./Components/Blog/Blog";
 import Course from "./Components/Course/Course";
 import CourseDetails from "./Components/CourseDetails/CourseDetails";
+import Error from "./Components/ErrorPage/Error";
 import Home from "./Components/Home/Home";
 import LeftSideBar from "./Components/LeftSideBar/LeftSideBar";
 import Login from "./Components/Login/Login";
@@ -14,6 +15,7 @@ function App() {
     {
       path: "/",
       element: <Main></Main>,
+      errorElement: <Error></Error>,
       children: [
         { path: "/", element: <Home></Home> },
         { path: "/home", element: <Home></Home> },
