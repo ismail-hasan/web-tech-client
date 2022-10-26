@@ -25,8 +25,12 @@ const Login = () => {
   };
   return (
     <div>
-      <form onSubmit={handleSubmit} action="" className="bg-orange-500 w-[30%] mx-auto mt-20 rounded px-10 py-10">
-        <h1 className="text-white capitalize text-[34px] text-center txt-white mb-2">Please login</h1>
+      <form
+        onSubmit={handleSubmit}
+        action=""
+        className="bg-orange-500 w-[80%] md:w-[50%] lg:w-[30%] md mx-auto mt-20 rounded px-10 py-10"
+      >
+        <h1 className="text-white capitalize text-[34px] text-center mb-2">Please login</h1>
         <div className="">
           <input
             name="email"

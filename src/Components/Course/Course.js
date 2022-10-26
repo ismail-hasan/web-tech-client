@@ -9,14 +9,14 @@ const Course = () => {
   // console.log(course);
   return (
     <div>
-      <div className="grid grid-cols-12 bg-[#ebebeb]">
-        <div className="col-span-2 px-10 py-20 ">
+      <div className="grid md:grid-cols-12  bg-[#ebebeb]">
+        <div className="flex md:flex-col col-span-2 px-10 md:py-20 ">
           {course.map((oneCourse) => (
             <LeftSideBar oneCourse={oneCourse} key={oneCourse.id}></LeftSideBar>
           ))}
         </div>
         <div className=" right-side col-span-10 px-4">
-          <div className="grid grid-cols-3 gap-7 my-16">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-7 my-16">
             {course.map((oneCourse) => (
               <RightSide oneCourse={oneCourse} key={oneCourse.id}></RightSide>
             ))}

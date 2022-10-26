@@ -4,6 +4,7 @@ import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../ContextProvider/ContextProvider";
 import { HiOutlineMenuAlt3 } from "react-icons/hi";
+import "./Header.css";
 
 const Header = () => {
   const [showNav, setShwoNav] = useState(false);
@@ -16,7 +17,7 @@ const Header = () => {
   };
 
   return (
-    <div className="bg-black py-4 text-white">
+    <div className="bg-black text-white">
       <div className="md:flex justify-between items-center sticky top-0 z-20 px-[30px]">
         <div className="flex justify-between items-center">
           <Link to={"/home"}>
@@ -40,12 +41,6 @@ const Header = () => {
           <NavLink className="mr-5 text-lg" to="/blog">
             Blog
           </NavLink>
-          <Link className="mr-5 text-lg" to="/login">
-            Login
-          </Link>
-          <NavLink className="mr-5 text-lg" to="/register">
-            register
-          </NavLink>
           {user?.uid ? (
             <NavLink to="/login">
               <button onClick={hendleOut} className="btn bg-orange-500 py-[6px] px-5 rounded mr-3">
@@ -55,10 +50,10 @@ const Header = () => {
           ) : (
             <>
               <NavLink to="/login">
-                <button className="btn bg-orange-500 py-[6px] px-5 rounded mr-3">Login </button>
+                <button className=" mr-3">Login </button>
               </NavLink>
               <NavLink to="register">
-                <button className="btn bg-orange-500 py-[6px] px-5 rounded">Register </button>
+                <button className="capitalize ">Register </button>
               </NavLink>
               {user?.email}
             </>

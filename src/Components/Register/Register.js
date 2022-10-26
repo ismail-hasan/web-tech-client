@@ -49,7 +49,7 @@ const Register = () => {
   };
 
   return (
-    <div className="bg-orange-500 w-[30%] mx-auto my-10 rounded p-5">
+    <div className="bg-orange-500 w-[80%] md:w-[50%] lg:w-[35%] mx-auto my-10 rounded p-5">
       <form onSubmit={handleSubmit} action="">
         <h1 className="text-white capitalize text-[34px] text-center txt-white mb-6">Please register</h1>
         <div className="">
