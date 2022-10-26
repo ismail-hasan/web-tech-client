@@ -1,7 +1,18 @@
 import React from "react";
+import { useEffect } from "react";
+import { useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
+import CheckCart from "../CheckCart/CheckCart";
 
 const CourseDetails = () => {
+  const [courseList, setCourseList] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:5000/courseList")
+      .then((res) => res.json())
+      .then((data) => setCourseList(data));
+  }, []);
+
   const course = useLoaderData();
   const { id, name, img, rate, dec, authorDec, authorImg, authorName, review, courses } = course;
   return (
@@ -31,11 +42,14 @@ const CourseDetails = () => {
               </button>
             </Link>
 
-            <Link to="/checkout">
+            <Link to={`/courseList/${id}`}>
               <button className="mb-10 capitalize text-white bg-orange-500 py-[6px] px-5 rounded mt-10 text-lg">
                 Please Checkout
               </button>
             </Link>
+            {/* {courseList.map((singleCourse) => (
+              <CheckCart singleCourse={singleCourse} key={singleCourse.id}></CheckCart>
+            ))} */}
           </div>
         </div>
       </div>

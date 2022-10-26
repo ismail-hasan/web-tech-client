@@ -5,7 +5,6 @@ import { AuthContext } from "../../ContextProvider/ContextProvider";
 import { Link, useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import { useState } from "react";
-import { confirmPasswordReset } from "firebase/auth";
 
 const Register = () => {
   const [error, setError] = useState(false);
@@ -22,12 +21,20 @@ const Register = () => {
     // const cPasaword = form.cPasaword.value;
     console.log(name, email, photo, password);
 
+    if (!/(?=.*[A-Z].*[A-Z])/.test(password)) {
+      setError("Please provide al least two uppercase");
+      return;
+    }
+    if (!/(?=.*[!@#$%*])/.test(password)) {
+      setError("Please provide a special character");
+      return;
+    }
+
     createUserWithPassword(email, password)
       .then((result) => {
         const users = result.user;
         console.log(users);
         form.reset();
-        nagivate("/course");
         handleUserProfile(name, photo);
         toast.success("user login success");
       })
@@ -53,6 +60,7 @@ const Register = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
+       
       })
       .catch((e) => console.log(e));
   };
@@ -61,6 +69,7 @@ const Register = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
+       
         toast.success("github login successfull");
       })
       .catch((e) => {
@@ -102,6 +111,7 @@ const Register = () => {
               Please Login
             </Link>
           </p>
+          <p>{error}</p>
 
           <button className="text-white text-lg rounded-sm bg-purple-700 px-6 py-2 mt-8  right-0">Submit</button>
           <hr className="my-10" />

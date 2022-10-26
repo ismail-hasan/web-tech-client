@@ -1,12 +1,14 @@
 import React from "react";
 import { useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import { AuthContext } from "../../ContextProvider/ContextProvider";
 
 const Login = () => {
   const { signInWithPassword } = useContext(AuthContext);
   const nagivate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -20,7 +22,7 @@ const Login = () => {
         const users = result.user;
         console.log(users);
         form.reset();
-        nagivate("/course");
+        nagivate(from, { replace: true });
         toast.success("User Login Sucess");
       })
       .catch((e) => {
@@ -53,7 +55,7 @@ const Login = () => {
             <span> Don't I Have Not AN Acount</span>
             <Link className="underline text-blue-800" to="/register">
               {"  "}
-               Register Now{" "}
+              Register Now{" "}
             </Link>
           </p>
 

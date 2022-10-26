@@ -85,13 +85,9 @@ const Header = () => {
             </>
           )}
           {user?.photoURL ? (
-            <img
-              title={user.displayName}
-              className="rounded-full cursor-pointer"
-              style={{ height: "40px" }}
-              src={user.photoURL}
-              alt=""
-            />
+            <div className="tooltip tooltip-accent tooltip-left" data-tip={user.displayName}>
+              <img className="rounded-full cursor-pointer" style={{ height: "40px" }} src={user.photoURL} alt="" />
+            </div>
           ) : (
             <FaUserAlt className="text-[27px] ml-5"></FaUserAlt>
           )}

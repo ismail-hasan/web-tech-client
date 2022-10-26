@@ -18,6 +18,7 @@ import { useState } from "react";
 export const AuthContext = createContext();
 const ContextProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+  const [loader, setLoader] = useState(true);
 
   const Auth = getAuth(app);
   const googleProvider = new GoogleAuthProvider();
@@ -46,6 +47,7 @@ const ContextProvider = ({ children }) => {
     const unsubscribe = onAuthStateChanged(Auth, (currenUser) => {
       // console.log("check the user", currenUser);
       setUser(currenUser);
+      setLoader(false);
     });
     return () => unsubscribe();
   }, []);
@@ -62,6 +64,7 @@ const ContextProvider = ({ children }) => {
     signInWithPassword,
     createUserWithPassword,
     googleSingIn,
+    loader
   };
 
   return <AuthContext.Provider value={userInfo}>{children}</AuthContext.Provider>;

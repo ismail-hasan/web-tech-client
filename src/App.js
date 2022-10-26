@@ -1,7 +1,7 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./App.css";
 import Blog from "./Components/Blog/Blog";
-import CheckCart from "./Components/CheckCart/CheckCart";
+import CartDetails from "./Components/CartDetails/CartDetails";
 import Course from "./Components/Course/Course";
 import CourseDetails from "./Components/CourseDetails/CourseDetails";
 import Error from "./Components/ErrorPage/Error";
@@ -25,15 +25,7 @@ function App() {
         { path: "/blog", element: <Blog></Blog> },
         { path: "/login", element: <Login></Login> },
         { path: "/register", element: <Register></Register> },
-        {
-          path: "/checkout",
-          element: (
-            <PrivetRoute>
-              <CheckCart></CheckCart>
-            </PrivetRoute>
-          ),
-          loader: () => fetch("http://localhost:5000/course"),
-        },
+
         {
           path: "/course/:id",
           element: <CourseDetails></CourseDetails>,
@@ -43,6 +35,15 @@ function App() {
           path: "/course/:id",
           element: <LeftSideBar></LeftSideBar>,
           loader: ({ params }) => fetch(`http://localhost:5000/course/${params.id}`),
+        },
+        {
+          path: "/courseList/:id",
+          element: (
+            <PrivetRoute>
+              <CartDetails></CartDetails>
+            </PrivetRoute>
+          ),
+          loader: ({ params }) => fetch(`http://localhost:5000/courseList/${params.id}`),
         },
       ],
     },
