@@ -6,11 +6,10 @@ import RightSide from "../RightSide/RightSide";
 const Course = () => {
   const course = useLoaderData();
 
-  // console.log(course);
   return (
     <div>
-      <div className="grid md:grid-cols-12  bg-[#ebebeb]">
-        <div className="flex md:flex-col col-span-2 px-10 md:py-20 ">
+      <div className=" md:grid-cols-12 grid bg-[#ebebeb]">
+        <div className="md:flex-col col-span-2 px-10 md:py-20 ">
           {course.map((oneCourse) => (
             <LeftSideBar oneCourse={oneCourse} key={oneCourse.id}></LeftSideBar>
           ))}

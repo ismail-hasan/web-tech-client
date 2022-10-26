@@ -9,7 +9,7 @@ import { confirmPasswordReset } from "firebase/auth";
 
 const Register = () => {
   const [error, setError] = useState(false);
-  const { createUserWithPassword, googleSingIn, githubSingIn } = useContext(AuthContext);
+  const { createUserWithPassword, updateUserProfile, googleSingIn, githubSingIn } = useContext(AuthContext);
   const nagivate = useNavigate();
 
   const handleSubmit = (e) => {
@@ -28,11 +28,23 @@ const Register = () => {
         console.log(users);
         form.reset();
         nagivate("/course");
+        handleUserProfile(name, photo);
         toast.success("user login success");
       })
       .catch((e) => {
         console.log(e);
         toast.error(e.message);
+      });
+  };
+  const handleUserProfile = (name, photo) => {
+    const profile = {
+      displayName: name,
+      photoURL: photo,
+    };
+    updateUserProfile(profile)
+      .then(() => {})
+      .catch((e) => {
+        console.log(e);
       });
   };
 
@@ -81,7 +93,7 @@ const Register = () => {
             name="password"
             placeholder="Password"
             className="px-2 outline-none py-[7px] w-full rounded mt-6"
-            type=" "
+            type="password"
           />
 
           <p className="lowercase text-[#000000] mt-3">

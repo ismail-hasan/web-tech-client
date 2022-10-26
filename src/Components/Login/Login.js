@@ -47,12 +47,13 @@ const Login = () => {
             name="password"
             placeholder="Password"
             className="px-2 outline-none py-[7px] w-full rounded mt-8"
-            type=" "
+            type="password "
           />
           <p className="lowercase text-[#000000] mt-3">
-            Dont,t I Have Not AN Acount
+            <span> Don't I Have Not AN Acount</span>
             <Link className="underline text-blue-800" to="/register">
-              Register Now
+              {"  "}
+               Register Now{" "}
             </Link>
           </p>
 

@@ -9,6 +9,7 @@ import {
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
+  updateProfile,
 } from "firebase/auth";
 import app from "../FireBase/FireBase.init";
 import { useEffect } from "react";
@@ -37,6 +38,10 @@ const ContextProvider = ({ children }) => {
     return signInWithPopup(Auth, githubProvider);
   };
 
+  const updateUserProfile = (profile) => {
+    return updateProfile(Auth.currentUser, profile);
+  };
+
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(Auth, (currenUser) => {
       // console.log("check the user", currenUser);
@@ -49,7 +54,15 @@ const ContextProvider = ({ children }) => {
     signOut(Auth);
   };
 
-  const userInfo = { user, githubSingIn, logOut, signInWithPassword, createUserWithPassword, googleSingIn };
+  const userInfo = {
+    user,
+    githubSingIn,
+    updateUserProfile,
+    logOut,
+    signInWithPassword,
+    createUserWithPassword,
+    googleSingIn,
+  };
 
   return <AuthContext.Provider value={userInfo}>{children}</AuthContext.Provider>;
 };
