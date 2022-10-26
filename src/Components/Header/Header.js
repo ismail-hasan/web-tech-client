@@ -1,9 +1,12 @@
 import React from "react";
+import { useState } from "react";
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../ContextProvider/ContextProvider";
+import { HiOutlineMenuAlt3 } from "react-icons/hi";
 
 const Header = () => {
+  const [showNav, setShwoNav] = useState(false);
   const { user, logOut } = useContext(AuthContext);
 
   const hendleOut = () => {
@@ -13,47 +16,54 @@ const Header = () => {
   };
 
   return (
-    <div className="bg-black py-4 text-white px-[100px]">
-      <div className="flex justify-between">
-        <div>
+    <div className="bg-black py-4 text-white">
+      <div className="md:flex justify-between items-center sticky top-0 z-20 px-[30px]">
+        <div className="flex justify-between items-center">
           <Link to={"/home"}>
-            <h1 className="text-4xl capitalize">online learner</h1>
+            <h1 className="text-3xl md:text-4xl capitalize">online learner</h1>
           </Link>
+          <HiOutlineMenuAlt3
+            onClick={() => setShwoNav(!showNav)}
+            className="md:hidden block cursor-pointer text-4xl"
+          ></HiOutlineMenuAlt3>
         </div>
 
-        <nav>
-          <Link className="mr-5 text-lg" to="/course">
+        <nav
+          className={
+            (showNav ? "left-0" : "-left-full") +
+            " fixed md:static mt-[60px] md:mt-[0px] flex flex-col md:flex-row md:w-auto -z-10 items-center bottom-0 top-0 space-y-7 md:space-y-0   bg-black w-[40%] p-5 md:bg-transparent transition-left"
+          }
+        >
+          <NavLink className="mr-5 text-lg" to="/course">
             Course
-          </Link>
-          <Link className="mr-5 text-lg" to="/blog">
+          </NavLink>
+          <NavLink className="mr-5 text-lg" to="/blog">
             Blog
-          </Link>
+          </NavLink>
           <Link className="mr-5 text-lg" to="/login">
             Login
           </Link>
-          <Link className="mr-5 text-lg" to="/register">
+          <NavLink className="mr-5 text-lg" to="/register">
             register
-          </Link>
-        </nav>
-        <div>
+          </NavLink>
           {user?.uid ? (
-            <Link to="/login">
+            <NavLink to="/login">
               <button onClick={hendleOut} className="btn bg-orange-500 py-[6px] px-5 rounded mr-3">
                 Log Out
               </button>
-            </Link>
+            </NavLink>
           ) : (
             <>
-              <Link to="/login">
+              <NavLink to="/login">
                 <button className="btn bg-orange-500 py-[6px] px-5 rounded mr-3">Login </button>
-              </Link>
-              <Link to="register">
+              </NavLink>
+              <NavLink to="register">
                 <button className="btn bg-orange-500 py-[6px] px-5 rounded">Register </button>
-              </Link>
+              </NavLink>
               {user?.email}
             </>
           )}
-        </div>
+        </nav>
       </div>
     </div>
   );

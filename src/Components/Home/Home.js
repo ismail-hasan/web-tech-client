@@ -13,6 +13,7 @@ const Home = () => {
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Error laboriosam aliquid <br /> illo reiciendis in
           quos esse quasi quo nesciunt rem?
         </p>
+        <button className="capitalize text-white bg-orange-500 py-[6px] px-5 rounded mt-5">see more</button>
       </div>
     </div>
   );
