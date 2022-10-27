@@ -43,7 +43,7 @@ const Blog = () => {
         </p>
       </div>
       <div>
-        <h3 className="font-semibold py-3 text-2xl md:text-3xl mt-2 ">4 .How does the private route work?</h3>
+        <h3 className="font-semibold py-3 text-2xl md:text-3xl mt-2 "> 4. What is cors?</h3>
         <p className="text-lg">
           <span className="font-semibold"> ANS : </span>
           CORS is a node.js package for providing a Connect/Express middleware that can be used to enable CORS with

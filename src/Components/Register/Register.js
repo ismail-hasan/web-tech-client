@@ -22,11 +22,14 @@ const Register = () => {
     console.log(name, email, photo, password);
 
     if (!/(?=.*[A-Z])/.test(password)) {
-      setError("Please provide al least two uppercase");
+      setError("Please provide A One uppercase Letter");
       return;
     }
+    if (!password.length > 6) {
+      setError("Password Must Be 6 Character");
+    }
     if (!/(?=.*[!@#$%*])/.test(password)) {
-      setError("Please provide a special character");
+      setError("Please Provide A One Special Character");
       return;
     } else {
       setError("");
@@ -39,10 +42,10 @@ const Register = () => {
         form.reset();
         handleUserProfile(name, photo);
         toast.success("user login success");
+        nagivate("/");
       })
       .catch((e) => {
-        console.log(e);
-        toast.error(e.message);
+        setError(e.message);
       });
   };
   const handleUserProfile = (name, photo) => {
@@ -62,6 +65,7 @@ const Register = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
+        nagivate("/");
       })
       .catch((e) => console.log(e));
   };
@@ -70,7 +74,7 @@ const Register = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
-
+        nagivate("/");
         toast.success("github login successfull");
       })
       .catch((e) => {
@@ -112,7 +116,7 @@ const Register = () => {
               Please Login
             </Link>
           </p>
-          <p>{error}</p>
+          <p className="text-red-700 pt-2">{error}</p>
 
           <button className="text-white text-lg rounded-sm bg-purple-700 px-6 py-2 mt-8  right-0">Submit</button>
           <hr className="my-10" />

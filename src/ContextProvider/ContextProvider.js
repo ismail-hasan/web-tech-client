@@ -25,17 +25,21 @@ const ContextProvider = ({ children }) => {
   const githubProvider = new GithubAuthProvider();
 
   const createUserWithPassword = (email, password) => {
+    setLoader(false);
     return createUserWithEmailAndPassword(Auth, email, password);
   };
   const signInWithPassword = (email, password) => {
+    setLoader(false);
     return signInWithEmailAndPassword(Auth, email, password);
   };
 
   const googleSingIn = () => {
+    setLoader(false);
     return signInWithPopup(Auth, googleProvider);
   };
 
   const githubSingIn = () => {
+    setLoader(false);
     return signInWithPopup(Auth, githubProvider);
   };
 
@@ -64,7 +68,7 @@ const ContextProvider = ({ children }) => {
     signInWithPassword,
     createUserWithPassword,
     googleSingIn,
-    loader
+    loader,
   };
 
   return <AuthContext.Provider value={userInfo}>{children}</AuthContext.Provider>;

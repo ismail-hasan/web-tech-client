@@ -22,7 +22,11 @@ function App() {
       children: [
         { path: "/", element: <Home></Home> },
         { path: "/home", element: <Home></Home> },
-        { path: "/course", element: <Course></Course>, loader: () => fetch("http://localhost:5000/course") },
+        {
+          path: "/course",
+          element: <Course></Course>,
+          loader: () => fetch("https://course-server-ten.vercel.app/course"),
+        },
         { path: "/blog", element: <Blog></Blog> },
         { path: "/login", element: <Login></Login> },
         { path: "/register", element: <Register></Register> },
@@ -31,12 +35,12 @@ function App() {
         {
           path: "/course/:id",
           element: <CourseDetails></CourseDetails>,
-          loader: ({ params }) => fetch(`http://localhost:5000/course/${params.id}`),
+          loader: ({ params }) => fetch(`https://course-server-ten.vercel.app/course/${params.id}`),
         },
         {
           path: "/course/:id",
           element: <LeftSideBar></LeftSideBar>,
-          loader: ({ params }) => fetch(`http://localhost:5000/course/${params.id}`),
+          loader: ({ params }) => fetch(`https://course-server-ten.vercel.app/course/${params.id}`),
         },
         {
           path: "/courseList/:id",
@@ -45,7 +49,7 @@ function App() {
               <CartDetails></CartDetails>
             </PrivetRoute>
           ),
-          loader: ({ params }) => fetch(`http://localhost:5000/courseList/${params.id}`),
+          loader: ({ params }) => fetch(`https://course-server-ten.vercel.app/courseList/${params.id}`),
         },
       ],
     },

@@ -5,6 +5,7 @@ import { AuthContext } from "../../ContextProvider/ContextProvider";
 import "./Header.css";
 import { FaUserAlt } from "react-icons/fa";
 import { useState } from "react";
+import { IoLogoSlack } from "react-icons/io";
 
 const Header = () => {
   const [toogle, setToggle] = useState(false);
@@ -23,7 +24,7 @@ const Header = () => {
 
   return (
     <div className="">
-      <div className="navbar bg-black text-white px-[15px] md:px-[70px]">
+      <div className="navbar bg-black text-white px-[7px] md:px-[70px]">
         <div className="navbar-start">
           <div className="dropdown ">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -58,8 +59,9 @@ const Header = () => {
               )}
             </ul>
           </div>
-          <Link to="/home" className="btn btn-ghost normal-case text-2xl">
-            Web Tech
+
+          <Link to="/home" className="btn btn-ghost px-0 normal-case text-2xl">
+            <IoLogoSlack className="text-3xl                       "></IoLogoSlack> Web Tech
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
@@ -108,7 +110,12 @@ const Header = () => {
           )}
           {user?.photoURL ? (
             <div className="tooltip tooltip-accent tooltip-left" data-tip={user.displayName}>
-              <img className="rounded-full cursor-pointer" style={{ height: "40px" }} src={user.photoURL} alt="" />
+              <img
+                className="rounded-full cursor-pointer"
+                style={{ height: "40px", width: "40px" }}
+                src={user.photoURL}
+                alt=""
+              />
             </div>
           ) : (
             <FaUserAlt className="text-[27px] ml-5"></FaUserAlt>

@@ -7,7 +7,7 @@ const Home = () => {
     <div>
       <div className="home-container flex flex-col text-center h-[91vh] justify-center text-white items-center">
         <p className="text-[22px] text-orange-600"> Best online learning platform</p>
-        <h1 className="text-4xl md:text-6xl w-[90%] md:w-[70] lg:[w-50]">
+        <h1 className="text-[30px] md:text-6xl w-[90%] md:w-[70] lg:[w-50]">
           Start Learning from home with expert instructors
         </h1>
         <p className="text-xl mt-5 px-[30px] md:px-[150px] lg:px-[250px]">
