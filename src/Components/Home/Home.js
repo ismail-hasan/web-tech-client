@@ -11,7 +11,7 @@ const Home = () => {
           Start Learning from home with expert instructors
         </h1>
         <p className="text-xl mt-5 px-[30px] md:px-[150px] lg:px-[250px]">
-          Read about the basics of web development, the process of creating a website, and additional resources for
+          Read abouts the basics of web development, the process of creating a website, and additional resources for
           those who want to learn more
         </p>
         <Link to="/course">
