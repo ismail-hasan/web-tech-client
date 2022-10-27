@@ -5,6 +5,7 @@ import CartDetails from "./Components/CartDetails/CartDetails";
 import Course from "./Components/Course/Course";
 import CourseDetails from "./Components/CourseDetails/CourseDetails";
 import Error from "./Components/ErrorPage/Error";
+import Faq from "./Components/Faq/Faq";
 import Home from "./Components/Home/Home";
 import LeftSideBar from "./Components/LeftSideBar/LeftSideBar";
 import Login from "./Components/Login/Login";
@@ -25,6 +26,7 @@ function App() {
         { path: "/blog", element: <Blog></Blog> },
         { path: "/login", element: <Login></Login> },
         { path: "/register", element: <Register></Register> },
+        { path: "/faq", element: <Faq></Faq> },
 
         {
           path: "/course/:id",

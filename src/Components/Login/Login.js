@@ -51,11 +51,10 @@ const Login = () => {
             className="px-2 outline-none py-[7px] w-full rounded mt-8"
             type="password "
           />
-          <p className="lowercase text-[#000000] mt-3">
-            <span> Don't I Have Not AN Acount</span>
+          <p className="font-semibold text-[#0e0b0b] mt-3">
+            Don't I Have Not AN Acount{" "}
             <Link className="underline text-blue-800" to="/register">
-              {"  "}
-              Register Now{" "}
+              Register Now
             </Link>
           </p>
 

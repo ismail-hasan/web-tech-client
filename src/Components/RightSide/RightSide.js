@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 const RightSide = ({ oneCourse }) => {
   const { name, dec, img, id } = oneCourse;
   return (
-    <div className=" border border-[#ccc] shadow-md px-3 py-5 bg-white">
-      <img className="rounded" src={img} alt="" />
+    <div className=" border border-[#ccc] rounded shadow-md px-3 py-4 bg-white">
+      <img className="rounded w-full h-[280px] md:h-[250px]" src={img} alt="" />
       <h3 className="text-3xl font-semibold mt-5">{name}</h3>
       <p className="text-lg mt-2">{dec.length > 200 ? dec.slice(0, 150) + "...." : dec}</p>
       <Link to={`${id}`}>

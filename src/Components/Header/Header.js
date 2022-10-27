@@ -4,15 +4,21 @@ import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../ContextProvider/ContextProvider";
 import "./Header.css";
 import { FaUserAlt } from "react-icons/fa";
+import { useState } from "react";
 
 const Header = () => {
-  // const []
+  const [toogle, setToggle] = useState(false);
   const { user, logOut } = useContext(AuthContext);
 
   const hendleOut = () => {
     logOut()
       .then(() => {})
       .catch((e) => console.log(e));
+  };
+
+  const handleToggle = (e) => {
+    const toogles = e.target.checked;
+    setToggle(toogles);
   };
 
   return (
@@ -33,12 +39,23 @@ const Header = () => {
             </label>
             <ul
               tabIndex={0}
-              className=" text-black font-semibold px-7 py-5 menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 bg-black"
+              className=" text-black font-semibold px-7 py-6 menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 bg-black"
             >
               <NavLink to="/home">Home</NavLink>
               <NavLink to="/course">Courses</NavLink>
               <NavLink to="/blog">Blog</NavLink>
               <NavLink to="/faq">FAQ</NavLink>
+              <div className="form-control ml-3">
+                <label className="label cursor-pointer">
+                  <span className="label-text"></span>
+                  <input onChange={handleToggle} type="checkbox" className="toggle toggle-primary" />
+                </label>
+              </div>
+              {toogle === true ? (
+                <button className="border border-[#dcdcdc]  rounded px-3 py-1 ml-4">Dark Mode</button>
+              ) : (
+                <button className="border border-[#dcdcdc]  rounded px-3 py-1 ml-4">Light Mode</button>
+              )}
             </ul>
           </div>
           <Link to="/home" className="btn btn-ghost normal-case text-2xl">
@@ -63,9 +80,14 @@ const Header = () => {
           <div className="form-control ml-3">
             <label className="label cursor-pointer">
               <span className="label-text"></span>
-              <input type="checkbox" className="toggle toggle-primary" />
+              <input onChange={handleToggle} type="checkbox" className="toggle toggle-primary" />
             </label>
           </div>
+          {toogle === true ? (
+            <button className="border border-[#dcdcdc] rounded px-3 py-1 ml-4">Light Mode</button>
+          ) : (
+            <button className="border border-[#dcdcdc] rounded px-3 py-1 ml-4">Dark Mode</button>
+          )}
         </div>
         <div className="navbar-end">
           {user?.uid ? (

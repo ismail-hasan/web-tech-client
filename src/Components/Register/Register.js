@@ -21,13 +21,15 @@ const Register = () => {
     // const cPasaword = form.cPasaword.value;
     console.log(name, email, photo, password);
 
-    if (!/(?=.*[A-Z].*[A-Z])/.test(password)) {
+    if (!/(?=.*[A-Z])/.test(password)) {
       setError("Please provide al least two uppercase");
       return;
     }
     if (!/(?=.*[!@#$%*])/.test(password)) {
       setError("Please provide a special character");
       return;
+    } else {
+      setError("");
     }
 
     createUserWithPassword(email, password)
@@ -60,7 +62,6 @@ const Register = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
-       
       })
       .catch((e) => console.log(e));
   };
@@ -69,7 +70,7 @@ const Register = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
-       
+
         toast.success("github login successfull");
       })
       .catch((e) => {
@@ -105,9 +106,9 @@ const Register = () => {
             type="password"
           />
 
-          <p className="lowercase text-[#000000] mt-3">
-            already have an acouont
-            <Link className="underline text-blue-800" to="/login">
+          <p className="font-semibold text-[#000000] mt-3">
+            Already Have An Acouont
+            <Link className=" text-blue-800" to="/login">
               Please Login
             </Link>
           </p>
