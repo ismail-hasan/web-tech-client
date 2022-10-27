@@ -60,8 +60,8 @@ const Header = () => {
             </ul>
           </div>
 
-          <Link to="/home" className="btn btn-ghost px-0 normal-case text-2xl">
-            <IoLogoSlack className="text-3xl                       "></IoLogoSlack> Web Tech
+          <Link to="/home" className="btn btn-ghost text-[16px] md:text-3xl px-0 normal-case text-2xl">
+            <IoLogoSlack className="text-2xl md:text-3xl"></IoLogoSlack> Web Tech
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">

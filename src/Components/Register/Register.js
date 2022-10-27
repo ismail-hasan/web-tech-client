@@ -110,7 +110,7 @@ const Register = () => {
             type="password"
           />
 
-          <p className="font-semibold text-[#000000] mt-3">
+          <p className="text-[13px] md:text-[16px] font-semibold text-[#000000] mt-3">
             Already Have An Acouont
             <Link className=" text-blue-800" to="/login">
               Please Login
